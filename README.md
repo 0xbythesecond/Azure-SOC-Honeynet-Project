@@ -3,7 +3,7 @@
 ![Cloud Honeynet / SOC](https://i.imgur.com/KGOvcdw.gif)
 
 ## Introduction
-I present to a summary of varying parts to create a HoneyNet via Microsoft Azure. This HoneyNet is to provide a visual representation of real-world cyber attacks from all parts of the world. The HoneyNet is designed to allow me to gather data related the different bad actors from across the world from differing IP addresses.
+I present a summary of varying parts to create a HoneyNet via Microsoft Azure. This HoneyNet is to provide a visual representation of real-world cyber attacks from all parts of the world. The HoneyNet is designed to allow me to gather data related the different bad actors from across the world from differing IP addresses.
 
 ### Sub-Intro
 In this project, I build a mini HoneyNet in Azure and ingest log sources from various resources into a Log Analytics workspace, which is then used by Microsoft Sentinel to build attack maps, trigger alerts, and create incidents. I measured some security metrics in the insecure environment for 24 hours, apply some security controls to harden the environment, measure metrics for another 24 hours, then show the results below. The metrics we will show are:
