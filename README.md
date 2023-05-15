@@ -3,7 +3,9 @@
 ![Cloud Honeynet / SOC](https://i.imgur.com/KGOvcdw.gif)
 
 ## Introduction
+I present to a summary of varying parts to create a HoneyNet via Microsoft Azure. This HoneyNet is to provide a visual representation of real-world cyber attacks from all parts of the world. The HoneyNet is designed to allow me to gather data related the different bad actors from across the world from differing IP addresses.
 
+### Sub-Intro
 In this project, I build a mini HoneyNet in Azure and ingest log sources from various resources into a Log Analytics workspace, which is then used by Microsoft Sentinel to build attack maps, trigger alerts, and create incidents. I measured some security metrics in the insecure environment for 24 hours, apply some security controls to harden the environment, measure metrics for another 24 hours, then show the results below. The metrics we will show are:
 
 - SecurityEvent (Windows Event Logs)
@@ -76,6 +78,9 @@ The following table shows the metrics we measured in our environment for another
 | SecurityAlert            | 0
 | SecurityIncident         | 0
 | AzureNetworkAnalytics_CL | 0
+
+## Reflection
+This has been both a challenging and rewarding experience creating this lab and how real world traffic can be analyze using attack maps as well as kql data to parse out different metrics. It was a beautiful sight to see everything come together and have the ability to paint a picture of an insecure invironment as well as one that is secure and you no longer see the malicious traffic after implementing the various security controls. During the process of leaving the resources vulnerable, I was able to see the differing IP addresses from the bad actors and the user names that they were attempting to access my virtual machines. After the hardening was completed and waiting 24 hours, it was quite the sight to behold when seeing that there were 0 results found that represent any allowed traffic from the bad actors on the public internet.
 
 ## Conclusion
 
