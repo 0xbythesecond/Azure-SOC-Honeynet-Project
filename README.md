@@ -35,7 +35,7 @@ For the "BEFORE" metrics, all resources were originally deployed, exposed to the
 For the "AFTER" metrics, Network Security Groups were hardened by blocking ALL traffic with the exception of my admin workstation, and all other resources were protected by their built-in firewalls as well as Private Endpoint
 
 ## Attack Maps Before Hardening / Security Controls
-The below image reflects exposed Microsoft SQL server over a 24 hour period and where the attacks were located
+The below image reflects exposed Microsoft SQL server over a 24 hour period. The points provided on the map indicate where the attack(s) or attempted login originated from. 
 ![MSSQL Allowed Access](https://i.imgur.com/UHVHIGM.png) <br />
 The below image reflects exposed Linux server over a 24 hour period and where the attacks were located
 ![Linux Syslog Auth Failures](https://i.imgur.com/8QbjEwL.png) <br />
