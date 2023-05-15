@@ -58,7 +58,7 @@ The following table shows the metrics we measured in our insecure environment fo
 | SecurityIncident         | 287
 | AzureNetworkAnalytics_CL | 526
 
-## Attack Maps Before Hardening / Security Controls
+## Attack Maps After Hardening / Security Controls
 
   >**Note**: All map queries actually returned no results due to no instances of malicious activity for the 24 hour period after hardening.
 
