@@ -25,16 +25,15 @@ In this project, I build a mini HoneyNet in Azure and ingest log sources from va
 - NIST SP 800-61 Revision 2 for Incident Handling Guidance
 
 ## Course of Action
-- *Creating the honeynet:* To start, I created the vulnerable environment with the Virtual Machines. This was done by disabling the firewall inside of the VM as well as allowing all ports and traffic to be received by the Network Security Group (NSG).
+- *Establishing the honeynet:* To start, I created the vulnerable environment with the Virtual Machines. This was done by disabling the firewall inside of the VM as well as allowing all ports and traffic to be received by the Network Security Group (NSG).
 
-- *Monitoring and analysis:* Azure was configured to ingest log sources from various resources into a log analytics workspace. Microsoft Sentinel was then used to build attack maps, trigger alerts, and create incidents based on the collected data.
+- *Tracking and examination:* The Azure infrastructure was meticulously configured to seamlessly ingest log sources from a multitude of resources into a dedicated log analytics workspace. Leveraging the advanced capabilities of Microsoft Sentinel, sophisticated attack maps were meticulously constructed, meticulously triggering highly precise alerts and meticulously generating comprehensive incidents, all meticulously derived from the meticulously collected and meticulously analyzed data.
 
-- *Security metrics measurement:* I observed the vulnerable environment for 24 hours, recording key security metrics while it was insecure. This provided a baseline to compare against after implementing remediation measures.
+- *Security metrics measurement:* I monitored the unsecured environment for a full day, noting important security measurements during that time. This served as a starting point for comparison once I applied security improvements.
 
-- *Incident response and remediation:* After addressing the incidents and identifying vulnerabilities, I began the process of hardening the environment by applying security best practices and Azure-specific recommendations.
+- *Incident response and remediation:* Following the resolution of incidents and identification of vulnerabilities, I proceeded to fortify the environment by implementing security best practices and incorporating Azure-specific recommendations.
 
-- *Post-remediation analysis:* I re-observed the environment for another 24 hours to measure security metrics again, comparing the results with the initial baseline.
-
+- *Post-remediation analysis:* An additional 24-hour period was dedicated to the meticulous re-observation of the environment, facilitating a comprehensive evaluation of the security metrics. The resulting data was then meticulously juxtaposed with the initial baseline, enabling a rigorous comparative analysis.
 
 The metrics we will show are:
 - SecurityEvent (Windows Event Logs)
@@ -45,32 +44,23 @@ The metrics we will show are:
 
 ## Architecture Before Hardening / Security Controls
 ![Architecture Diagram](https://i.imgur.com/gBvHJo4.gif)
+In the "BEFORE" measurement phase, it was observed that all resources were initially provisioned with direct internet exposure. The Virtual Machines were configured with open Network Security Groups and permissive built-in firewalls, while other resources were deployed with publicly accessible endpoints, thereby rendering the usage of Private Endpoints unnecessary.
 
 ## Architecture After Hardening / Security Controls
 ![Architecture Diagram](https://i.imgur.com/oQtbais.gif)
-
-The architecture of the mini honeynet in Azure consists of the following components:
-
-- Virtual Network (VNet)
-- Network Security Group (NSG)
-- Virtual Machines (2 windows, 1 linux)
-- Log Analytics Workspace
-- Azure Key Vault
-- Azure Storage Account
-- Microsoft Sentinel
-
-For the "BEFORE" metrics, all resources were originally deployed, exposed to the internet. The Virtual Machines had both their Network Security Groups and built-in firewalls wide open, and all other resources are deployed with public endpoints visible to the Internet; aka, no use for Private Endpoints.
-
-For the "AFTER" metrics, Network Security Groups were hardened by blocking ALL traffic with the exception of my admin workstation, and all other resources were protected by their built-in firewalls as well as Private Endpoint
+In the "AFTER" evaluation stage, the Network Security Groups underwent fortification measures whereby all traffic, with the exception of my administrative workstation, was comprehensively blocked. Additionally, other resources were fortified by leveraging their built-in firewalls alongside the implementation of Private Endpoint functionality.
 
 ## Attack Maps Before Hardening / Security Controls
-The below image reflects exposed Microsoft SQL server over a 24 hour period. The points provided on the map indicate where the attack(s) or attempted login originated from. 
+The visual representation presented below provides an overview of the assault endeavors targeted at a publicly accessible Microsoft SQL server throughout a span of 24 hours. The plotted data points on the map delineate the precise origins of these attack(s) or attempted logins.
 ![MSSQL Allowed Access](https://i.imgur.com/UHVHIGM.png) <br />
-The below image reflects exposed Linux server over a 24 hour period and where the attacks were located
+
+The depicted attack map elucidates the multitude of syslog authentication failures encountered by the Linux server I provisioned, elucidating the presence of unsanctioned endeavors to gain entry from external sources beyond the confines of the local network. This serves as an emphatic reminder underscoring the indispensability of fortifying Linux servers with robust authentication protocols and diligently scrutinizing system logs to detect and thwart potential intrusions.
 ![Linux Syslog Auth Failures](https://i.imgur.com/8QbjEwL.png) <br />
-The below image reflects exposed Windows Virtual Machine over a 24 hour period and where the attacks were located
+
+The exhibited attack map encapsulates a multitude of RDP (Remote Desktop Protocol) and SMB (Server Message Block) failures, vividly exemplifying the unrelenting endeavors of potential assailants to exploit these specific protocols. The visual depiction accentuates the imperative nature of fortifying remote access and file sharing services as a means to safeguard against illicit entry and mitigate the looming cyber threats that may ensue.
 ![Windows RDP/SMB Auth Failures](https://i.imgur.com/ALHFE3u.png) <br />
-The below image reflects exposed Network Security Group(NSG) over a 24 hour period that is wide open on all ports while capable of accepting all traffic and where the attacks originated from.
+
+The illustrated attack map serves as a compelling showcase of the ramifications stemming from the act of leaving the Network Security Group (NSG) unrestricted, thereby facilitating the unhindered ingress of malicious network traffic. This visualization effectively emphasizes the criticality of deploying robust security protocols, including the imposition of stringent NSG rules, as a means to thwart unauthorized entry and mitigate the inherent risks posed by potential threats.
 ![NSG Allowed Inbound Malicious Flows](https://i.imgur.com/W2iCXmv.png)
 
 
@@ -112,7 +102,7 @@ The following table shows the metrics we measured in our environment for another
 This has been both a challenging and rewarding experience creating this lab and how real world traffic can be analyze using attack maps as well as kql data to parse out different metrics. It was a beautiful sight to see everything come together and have the ability to paint a picture of an insecure invironment as well as one that is secure and you no longer see the malicious traffic after implementing the various security controls. During the process of leaving the resources vulnerable, I was able to see the differing IP addresses from the bad actors and the user names that they were attempting to access my virtual machines. After the hardening was completed and waiting 24 hours, it was quite the sight to behold when seeing that there were 0 results found that represent any allowed traffic from the bad actors on the public internet.
 
 ## Conclusion
+This project involved the establishment of a compact honeynet within the Microsoft Azure platform, where diverse log sources were seamlessly integrated into a dedicated Log Analytics workspace. Microsoft Sentinel played a pivotal role in proactively generating alerts and initiating incidents based on the logs ingested. Notably, comprehensive metrics were diligently measured in the vulnerable environment prior to the implementation of security controls, followed by a subsequent assessment after fortifying the infrastructure. The remarkable outcome emerged as a significant reduction in the frequency of security events and incidents, which undeniably attested to the efficacy of the implemented security measures.
 
-In this project, a mini honeynet was constructed in Microsoft Azure and log sources were integrated into a Log Analytics workspace. Microsoft Sentinel was employed to trigger alerts and create incidents based on the ingested logs. Additionally, metrics were measured in the insecure environment before security controls were applied, and then again after implementing security measures. It is noteworthy that the number of security events and incidents were drastically reduced after the security controls were applied, demonstrating their effectiveness.
+It is important to acknowledge that if the network's resources were extensively utilized by regular users, it is conceivable that a greater number of security events and alerts could have been generated within the 24-hour timeframe subsequent to the enforcement of the security controls.
 
-It is worth noting that if the resources within the network were heavily utilized by regular users, it is likely that more security events and alerts may have been generated within the 24-hour period following the implementation of the security controls.
