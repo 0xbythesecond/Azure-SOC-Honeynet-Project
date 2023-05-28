@@ -10,17 +10,17 @@ In this project, I build a mini HoneyNet in Azure and ingest log sources from va
 
 
 ## Azure Resources Deployed, Technologies and Regulations used:
-- Azure Virtual Network (VNet)
-- Azure Network Security Group (NSG)
-- Virtual Machines (2x Windows 10 Pro, 1x Linux Server)
-- Log Analytics Workspace with Kusto Query Language (KQL) Queries
-- Azure Key Vault for Secure Secrets Management
-- Azure Storage Account for Data Storage
-- Microsoft Sentinel for Security Information and Event Management (SIEM)
-- Microsoft Defender for Cloud to Protect Cloud Resources
-- Windows Remote Desktop for Remote Access
-- Command Line Interface (CLI) for System Management
-- PowerShell for Automation and Configuration Management
+- [Azure Virtual Network](https://learn.microsoft.com/en-us/azure/virtual-network/virtual-networks-overview) (VNet)
+- [Azure Network Security Group](https://learn.microsoft.com/en-us/azure/virtual-network/network-security-groups-overview) (NSG)
+- [Virtual Machines](https://learn.microsoft.com/en-us/azure/virtual-machines/overview) (2x Windows 10 Pro, 1x Linux Server)
+- [Log Analytics Workspace](https://learn.microsoft.com/en-us/azure/azure-monitor/logs/log-analytics-workspace-overview) with Kusto Query Language (KQL) Queries
+- [Azure Key Vault](https://learn.microsoft.com/en-us/azure/key-vault/general/basic-concepts) for Secure Secrets Management
+- [Azure Storage Account](https://learn.microsoft.com/en-us/azure/storage/common/storage-account-overview) for Data Storage
+- [Microsoft Sentinel](https://learn.microsoft.com/en-us/azure/sentinel/overview) for Security Information and Event Management (SIEM)
+- [Microsoft Defender](https://learn.microsoft.com/en-us/azure/defender-for-cloud/defender-for-cloud-introduction) for Cloud to Protect Cloud Resources
+- [Windows Remote Desktop](https://support.microsoft.com/en-us/windows/how-to-use-remote-desktop-5fe128d5-8fb1-7a23-3b8a-41e636865e8c) for Remote Access
+- [Command Line Interface](https://www.w3schools.com/whatis/whatis_cli.asp) (CLI) for System Management
+- [PowerShell](https://learn.microsoft.com/en-us/powershell/scripting/overview?view=powershell-7.3) for Automation and Configuration Management
 - [NIST SP 800-53 Revision 4](https://csrc.nist.gov/publications/detail/sp/800-53/rev-5/final) for Security Controls
 - [NIST SP 800-61 Revision 2](https://www.nist.gov/privacy-framework/nist-sp-800-61) for Incident Handling Guidance
 
