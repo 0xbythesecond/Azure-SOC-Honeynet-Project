@@ -1,6 +1,6 @@
 <!--# Azure-SOC-Honeynet-Project-->
 # Building a SOC + Honeynet in Azure (Live Traffic)
-![Cloud Honeynet / SOC](https://i.imgur.com/KGOvcdw.gif)
+![SOC Honeynet](https://github.com/0xbythesecond/Azure-SOC-Honeynet-Project/assets/23303634/82446928-0ee2-4f55-8273-ad7ba6f60dde)
 
 ## Introduction
 I present a summary of varying parts to create a HoneyNet via Microsoft Azure. This HoneyNet is to provide a visual representation of real-world cyber attacks from all parts of the world. The HoneyNet is designed to allow me to gather data related to the different bad actors from across the world from differing IP addresses.
