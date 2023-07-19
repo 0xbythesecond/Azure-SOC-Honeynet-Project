@@ -98,6 +98,16 @@ The following table shows the metrics we measured in our environment for another
 | SecurityIncident         | 0
 | AzureNetworkAnalytics_CL | 0
 
+## Change after Securing Environment
+| Metric                                          | Percent
+| ----------------------------------------------- | -----
+| Security Event (Windows VM)                     |  -98.04%
+| Syslog (Linux VM)                               |  -99.33%
+| Security Alert (Microsoft Defender for Cloud)   |  -100.00%
+| Security Incident (Sentinel Incidents)          |  -100.00%
+| NSG Inbound Malicious Flows Allowed             |  -100.00%
+
+
 ## Reflection
 This has been both a challenging and rewarding experience creating this lab and how real-world traffic can be analyzed using attack maps as well as KQL data to parse out different metrics. It was a beautiful sight to see everything come together and have the ability to paint a picture of an insecure environment as well as one that is secure and you no longer see the malicious traffic after implementing the various security controls. During the process of leaving the resources vulnerable, I was able to see the differing IP addresses of the bad actors and the user names that they were attempting to access my virtual machines. After the hardening was completed and waiting 24 hours, it was quite a sight to behold when seeing that there were 0 results found that represent any allowed traffic from the bad actors on the public internet.
 
